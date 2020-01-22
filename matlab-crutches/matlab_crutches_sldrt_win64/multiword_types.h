@@ -7,9 +7,9 @@
  *
  * Code generation for model "matlab_crutches".
  *
- * Model version              : 1.3
+ * Model version              : 1.7
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Mon Jan 20 15:41:10 2020
+ * C source code generated on : Tue Jan 21 06:22:28 2020
  *
  * Target selection: sldrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

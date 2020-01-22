@@ -7,9 +7,9 @@
  *
  * Code generation for model "matlab_crutches".
  *
- * Model version              : 1.3
+ * Model version              : 1.7
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Mon Jan 20 15:41:10 2020
+ * C source code generated on : Tue Jan 21 06:22:28 2020
  *
  * Target selection: sldrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -31,7 +31,7 @@ static double SLDRTBoardOptions0[] = {
   0.0,
   0.0,
   0.0,
-  1.0,
+  0.0,
 };
 
 /* list of Simulink Desktop Real-Time timers */
@@ -59,17 +59,20 @@ RT_MODEL_matlab_crutches_T *const matlab_crutches_M = &matlab_crutches_M_;
 /* Model output function */
 void matlab_crutches_output(void)
 {
-  /* S-Function (sldrtpi): '<Root>/Packet Input' */
-  /* S-Function Block: <Root>/Packet Input */
+  /* S-Function (sldrtsi): '<Root>/Stream Input' */
+  /* S-Function Block: <Root>/Stream Input */
   {
-    uint8_T indata[4U];
-    int status = RTBIO_DriverIO(0, STREAMINPUT, IOREAD, 4U,
-      &matlab_crutches_P.PacketInput_PacketID, (double*) indata, NULL);
-    matlab_crutches_B.PacketInput_o2 = status & 0x1;/* Data Ready port */
+    char indata[329U];
+    int status;
+    const char* terminators = "\n\0";
+    memset(indata, 0, sizeof(indata));
+    status = RTBIO_DriverIO(0, STREAMINPUT, IOREADWITHRESET, 328U, NULL, (double*)
+      indata, terminators);
     if (status & 0x1) {
-      RTWin_ANYTYPEPTR indp;
-      indp.p_uint8_T = indata;
-      matlab_crutches_B.PacketInput_o1 = *indp.p_int32_T++;
+      real32_T var0;
+      int nscan = sscanf(indata, "%f", &var0);
+      if (nscan > 0)
+        matlab_crutches_B.StreamInput = (real_T) var0;
     }
   }
 }
@@ -184,10 +187,10 @@ RT_MODEL_matlab_crutches_T *matlab_crutches(void)
   matlab_crutches_M->Timing.stepSize0 = 0.001;
 
   /* External mode info */
-  matlab_crutches_M->Sizes.checksums[0] = (2488328558U);
-  matlab_crutches_M->Sizes.checksums[1] = (2852722679U);
-  matlab_crutches_M->Sizes.checksums[2] = (1547123801U);
-  matlab_crutches_M->Sizes.checksums[3] = (923110789U);
+  matlab_crutches_M->Sizes.checksums[0] = (3038308635U);
+  matlab_crutches_M->Sizes.checksums[1] = (3218792932U);
+  matlab_crutches_M->Sizes.checksums[2] = (1186834584U);
+  matlab_crutches_M->Sizes.checksums[3] = (2989105842U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
@@ -244,9 +247,9 @@ RT_MODEL_matlab_crutches_T *matlab_crutches(void)
   matlab_crutches_M->Sizes.numU = (0); /* Number of model inputs */
   matlab_crutches_M->Sizes.sysDirFeedThru = (0);/* The model is not direct feedthrough */
   matlab_crutches_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  matlab_crutches_M->Sizes.numBlocks = (3);/* Number of blocks */
-  matlab_crutches_M->Sizes.numBlockIO = (2);/* Number of block outputs */
-  matlab_crutches_M->Sizes.numBlockPrms = (3);/* Sum of parameter "widths" */
+  matlab_crutches_M->Sizes.numBlocks = (2);/* Number of blocks */
+  matlab_crutches_M->Sizes.numBlockIO = (1);/* Number of block outputs */
+  matlab_crutches_M->Sizes.numBlockPrms = (2);/* Sum of parameter "widths" */
   return matlab_crutches_M;
 }
 

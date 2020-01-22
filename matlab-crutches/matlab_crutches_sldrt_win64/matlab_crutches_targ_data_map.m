@@ -5,7 +5,7 @@
   ;%***********************
       
     nTotData      = 0; %add to this count as we go
-    nTotSects     = 2;
+    nTotSects     = 1;
     sectIdxOffset = 0;
     
     ;%
@@ -31,27 +31,16 @@
       section.nData     = 2;
       section.data(2)  = dumData; %prealloc
       
-	  ;% matlab_crutches_P.PacketInput_MaxMissedTicks
+	  ;% matlab_crutches_P.StreamInput_MaxMissedTicks
 	  section.data(1).logicalSrcIdx = 0;
 	  section.data(1).dtTransOffset = 0;
 	
-	  ;% matlab_crutches_P.PacketInput_YieldWhenWaiting
+	  ;% matlab_crutches_P.StreamInput_YieldWhenWaiting
 	  section.data(2).logicalSrcIdx = 1;
 	  section.data(2).dtTransOffset = 1;
 	
       nTotData = nTotData + section.nData;
       paramMap.sections(1) = section;
-      clear section
-      
-      section.nData     = 1;
-      section.data(1)  = dumData; %prealloc
-      
-	  ;% matlab_crutches_P.PacketInput_PacketID
-	  section.data(1).logicalSrcIdx = 2;
-	  section.data(1).dtTransOffset = 0;
-	
-      nTotData = nTotData + section.nData;
-      paramMap.sections(2) = section;
       clear section
       
     
@@ -72,7 +61,7 @@
   ;%**************************
       
     nTotData      = 0; %add to this count as we go
-    nTotSects     = 2;
+    nTotSects     = 1;
     sectIdxOffset = 0;
     
     ;%
@@ -98,23 +87,12 @@
       section.nData     = 1;
       section.data(1)  = dumData; %prealloc
       
-	  ;% matlab_crutches_B.PacketInput_o1
+	  ;% matlab_crutches_B.StreamInput
 	  section.data(1).logicalSrcIdx = 0;
 	  section.data(1).dtTransOffset = 0;
 	
       nTotData = nTotData + section.nData;
       sigMap.sections(1) = section;
-      clear section
-      
-      section.nData     = 1;
-      section.data(1)  = dumData; %prealloc
-      
-	  ;% matlab_crutches_B.PacketInput_o2
-	  section.data(1).logicalSrcIdx = 1;
-	  section.data(1).dtTransOffset = 0;
-	
-      nTotData = nTotData + section.nData;
-      sigMap.sections(2) = section;
       clear section
       
     
@@ -136,7 +114,7 @@
       
     nTotData      = 0; %add to this count as we go
     nTotSects     = 1;
-    sectIdxOffset = 2;
+    sectIdxOffset = 1;
     
     ;%
     ;% Define dummy sections & preallocate arrays
@@ -158,20 +136,16 @@
     ;%
     ;% Auto data (matlab_crutches_DW)
     ;%
-      section.nData     = 3;
-      section.data(3)  = dumData; %prealloc
+      section.nData     = 2;
+      section.data(2)  = dumData; %prealloc
       
-	  ;% matlab_crutches_DW.PacketInput_PWORK
+	  ;% matlab_crutches_DW.StreamInput_PWORK
 	  section.data(1).logicalSrcIdx = 0;
 	  section.data(1).dtTransOffset = 0;
 	
 	  ;% matlab_crutches_DW.Scope_PWORK.LoggedData
 	  section.data(2).logicalSrcIdx = 1;
-	  section.data(2).dtTransOffset = 1;
-	
-	  ;% matlab_crutches_DW.Scope1_PWORK.LoggedData
-	  section.data(3).logicalSrcIdx = 2;
-	  section.data(3).dtTransOffset = 2;
+	  section.data(2).dtTransOffset = 2;
 	
       nTotData = nTotData + section.nData;
       dworkMap.sections(1) = section;
@@ -203,8 +177,8 @@
   ;%
 
 
-  targMap.checksum0 = 2488328558;
-  targMap.checksum1 = 2852722679;
-  targMap.checksum2 = 1547123801;
-  targMap.checksum3 = 923110789;
+  targMap.checksum0 = 3038308635;
+  targMap.checksum1 = 3218792932;
+  targMap.checksum2 = 1186834584;
+  targMap.checksum3 = 2989105842;
 

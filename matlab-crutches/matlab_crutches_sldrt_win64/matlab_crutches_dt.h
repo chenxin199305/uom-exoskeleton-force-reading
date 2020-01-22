@@ -7,9 +7,9 @@
  *
  * Code generation for model "matlab_crutches".
  *
- * Model version              : 1.3
+ * Model version              : 1.7
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Mon Jan 20 15:41:10 2020
+ * C source code generated on : Tue Jan 21 06:22:28 2020
  *
  * Target selection: sldrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -58,30 +58,26 @@ static const char_T * rtDataTypeNames[] = {
 
 /* data type transitions for block I/O structure */
 static DataTypeTransition rtBTransitions[] = {
-  { (char_T *)(&matlab_crutches_B.PacketInput_o1), 6, 0, 1 },
-
-  { (char_T *)(&matlab_crutches_B.PacketInput_o2), 8, 0, 1 }
+  { (char_T *)(&matlab_crutches_B.StreamInput), 0, 0, 1 }
   ,
 
-  { (char_T *)(&matlab_crutches_DW.PacketInput_PWORK), 11, 0, 3 }
+  { (char_T *)(&matlab_crutches_DW.StreamInput_PWORK[0]), 11, 0, 3 }
 };
 
 /* data type transition table for block I/O structure */
 static DataTypeTransitionTable rtBTransTable = {
-  3U,
+  2U,
   rtBTransitions
 };
 
 /* data type transitions for Parameters structure */
 static DataTypeTransition rtPTransitions[] = {
-  { (char_T *)(&matlab_crutches_P.PacketInput_MaxMissedTicks), 0, 0, 2 },
-
-  { (char_T *)(&matlab_crutches_P.PacketInput_PacketID), 6, 0, 1 }
+  { (char_T *)(&matlab_crutches_P.StreamInput_MaxMissedTicks), 0, 0, 2 }
 };
 
 /* data type transition table for Parameters structure */
 static DataTypeTransitionTable rtPTransTable = {
-  2U,
+  1U,
   rtPTransitions
 };
 
